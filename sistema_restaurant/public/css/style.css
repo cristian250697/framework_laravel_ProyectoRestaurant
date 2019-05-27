@@ -1,0 +1,10 @@
+/* Center card */
+.card {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.text-white ul.list-group{
+    color: black;
+}
