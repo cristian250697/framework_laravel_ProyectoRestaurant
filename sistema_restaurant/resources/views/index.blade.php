@@ -16,7 +16,7 @@
 
 </head>
 
-<body>
+<body onload="setInterval('location.reload()',3000)">
     <div class="clearfix">...</div>
     <header>
         <!-- navbar -->
@@ -33,23 +33,16 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Pedidos</a>
+                        <a class="nav-link" href="{{ url('comandasProductos') }}">Pedidos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Usuarios</a>
+                        <a class="nav-link " href="{{ url('usuarios') }}">Usuarios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Productos</a>
+                        <a class="nav-link " href="{{ url('productos') }}">Productos</a>
                     </li>
                 </ul>
-                <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><button type="button" data-toggle="modal" data-target="#modal" class="btn btn-secondary">Iniciar Sesion</button></a>
-                        </li>
 
-                    </ul>
-                </div>
 
             </div>
         </nav>
@@ -85,110 +78,30 @@
     </div>
     <!-- /modal -->
 
+
     <!--row-->
     <div class="row text-center mt-5">
+        <?php $contador = 0 ?>
+        @foreach($comandas as $comanda)
+
         <div class="col-md-5 col-sm-12 col-lg-4 col-xl-3">
             <div class="card text-white bg-secondary mb-3" style="width: 18rem;">
 
                 <div class="card-body">
-                    <h5 class="card-title">Mesero</h5>
-                    <p class="card-text">Descripción del pedido (Platillo sin cebolla)</p>
+                    <h5 class="card-title">Mesero: {{$comanda->nombre}} {{$comanda->apellido}}</h5>
+                    <!-- <p class="card-text">Descripción del pedido (Platillo sin cebolla)</p> -->
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Chilaquiles rojos</li>
-                    <li class="list-group-item">Coca-cola 600 ml.</li>
-                    <li class="list-group-item">Flan de chocolate</li>
+                    <li class="list-group-item">Producto: {{$comanda->nombre_producto}}</li>
+                    <li class="list-group-item">Descripcion: {{$comanda->descripcion}}</li>
+                    <li class="list-group-item">Mesa: {{$comanda->mesa}}</li>
                 </ul>
                 <div class="card-body">
-                    <a href="#" class="btn btn-dark">Listo</a>
+                    <img src="{{ asset('storage'). '/'.$comanda->imagen}}" width="100">
                 </div>
             </div>
         </div>
-        <div class="col-md-5 col-sm-12 col-lg-4 col-xl-3">
-            <div class="card text-white bg-secondary mb-3" style="width: 18rem;">
-
-                <div class="card-body">
-                    <h5 class="card-title">Mesero</h5>
-                    <p class="card-text">Descripción del pedido (Platillo sin cebolla)</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Chilaquiles rojos</li>
-                    <li class="list-group-item">Coca-cola 600 ml.</li>
-                    <li class="list-group-item">Flan de chocolate</li>
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="btn btn-dark">Listo</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-5 col-sm-12 col-lg-4 col-xl-3">
-            <div class="card text-white bg-secondary mb-3" style="width: 18rem;">
-
-                <div class="card-body">
-                    <h5 class="card-title">Mesero</h5>
-                    <p class="card-text">Descripción del pedido (Platillo sin cebolla)</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Chilaquiles rojos</li>
-                    <li class="list-group-item">Coca-cola 600 ml.</li>
-                    <li class="list-group-item">Flan de chocolate</li>
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="btn btn-dark">Listo</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-5 col-sm-12 col-lg-4 col-xl-3">
-            <div class="card text-white bg-secondary mb-3" style="width: 18rem;">
-
-                <div class="card-body">
-                    <h5 class="card-title">Mesero</h5>
-                    <p class="card-text">Descripción del pedido (Platillo sin cebolla)</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Chilaquiles rojos</li>
-                    <li class="list-group-item">Coca-cola 600 ml.</li>
-                    <li class="list-group-item">Flan de chocolate</li>
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="btn btn-dark">Listo</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-5 col-sm-12 col-lg-4 col-xl-3">
-            <div class="card text-white bg-secondary mb-3" style="width: 18rem;">
-
-                <div class="card-body">
-                    <h5 class="card-title">Mesero</h5>
-                    <p class="card-text">Descripción del pedido (Platillo sin cebolla)</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Chilaquiles rojos</li>
-                    <li class="list-group-item">Coca-cola 600 ml.</li>
-                    <li class="list-group-item">Flan de chocolate</li>
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="btn btn-dark">Listo</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-5 col-sm-12 col-lg-4 col-xl-3">
-            <div class="card text-white bg-secondary mb-3" style="width: 18rem;">
-
-                <div class="card-body">
-                    <h5 class="card-title">Mesero</h5>
-                    <p class="card-text">Descripción del pedido (Platillo sin cebolla)</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Chilaquiles rojos</li>
-                    <li class="list-group-item">Coca-cola 600 ml.</li>
-                    <li class="list-group-item">Flan de chocolate</li>
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="btn btn-dark">Listo</a>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
     <!--/row-->
 
@@ -198,4 +111,6 @@
     <script src="js/jquery-3.3.1.slim.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-</body></html>
+</body>
+
+</html>

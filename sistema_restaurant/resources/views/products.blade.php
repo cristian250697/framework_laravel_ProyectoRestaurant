@@ -33,23 +33,15 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="../../index.html">Pedidos</a>
+                        <a class="nav-link" href="{{ url('comandasProductos') }}">Pedidos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../users/index.html">Usuarios</a>
+                        <a class="nav-link " href="{{ url('usuarios') }}">Usuarios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Productos</a>
+                        <a class="nav-link " href="{{ url('productos') }}">Productos</a>
                     </li>
                 </ul>
-                <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link"><button type="button" class="btn btn-secondary">Cerrar Sesion</button></a>
-                        </li>
-
-                    </ul>
-                </div>
 
             </div>
         </nav>
@@ -117,8 +109,8 @@
                             ?>
                         </td>
                         <td>
-                            <img src="{{ asset('storage'). '/'.$producto->imagen}}" width = "100">
-                            
+                            <img src="{{ asset('storage'). '/'.$producto->imagen}}" width="100">
+
                         </td>
                         <!-- <td>
                             <div class="custom-control custom-checkbox">
@@ -175,7 +167,7 @@
                                                         <label for="pass">Imagen</label>
                                                         <input type="file" class="form-control" id="imagen" name="imagen">
                                                     </div>
-                                                    <img src="{{ asset('storage'). '/'.$producto->imagen}}" width = "100">
+                                                    <img src="{{ asset('storage'). '/'.$producto->imagen}}" width="100">
 
                                                 </div>
                                             </div>

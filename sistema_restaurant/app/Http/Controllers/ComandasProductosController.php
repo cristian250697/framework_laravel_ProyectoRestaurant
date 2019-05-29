@@ -4,12 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Comandas_Productos;
 use Illuminate\Http\Request;
+use DB;
 
 class ComandasProductosController extends Controller
 {
     public function index()
     {
+        $datos['comandas'] = DB::table('comandas_productos')
+        ->join('productos', 'productos.id', '=', 'comandas_productos.productoIdPlatillo')
+        ->join('comandas', 'comandas.id', '=', 'comandas_productos.comandaIdComanda')
+        ->join('mesas', 'mesas.id', '=', 'comandas.idMesa')
+        ->join('usuarios', 'usuarios.id', '=', 'comandas.idUsuario')
+        ->select('mesas.mesa', 'productos.nombre as nombre_producto', 'productos.descripcion', 'usuarios.nombre', 'usuarios.apellido', 'productos.imagen')->get();
 
+        return view('index', $datos);
     }
 
     public function list()
